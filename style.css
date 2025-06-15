@@ -1,0 +1,125 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f3f4f6; /* Light gray background */
+    color: #333;
+    overflow-x: hidden; /* Prevent horizontal scroll due to animations */
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+/* Custom scroll-reveal animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Typing animation for hero text */
+.typing-text {
+    border-right: 2px solid;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 3s steps(40, end) forwards, blink-caret .75s step-end infinite;
+}
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #2563eb; } /* Tailwind blue-700 */
+}
+
+/* Skill bar animation */
+.skill-bar {
+    height: 8px;
+    background-color: #e5e7eb; /* Gray-200 */
+    border-radius: 9999px; /* Full rounded */
+    overflow: hidden;
+}
+.skill-progress {
+    height: 100%;
+    background-color: #2563eb; /* Tailwind blue-700 */
+    border-radius: 9999px;
+    transition: width 1s ease-out;
+}
+.skill-item.active .skill-progress {
+    width: var(--progress-width, 0%);
+}
+
+/* Project card hover effect */
+.project-card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Smooth scroll effect */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom CSS for animated name with gradient */
+.animated-name {
+    /* Applying gradient background */
+    background-image: linear-gradient(to right, #2563eb, #111827); /* blue-700 to gray-900 (black) */
+    -webkit-background-clip: text; /* Clip background to text shape for webkit browsers */
+    background-clip: text; /* Clip background to text shape */
+    color: transparent; /* Make text transparent so the background shows through */
+    transition: transform 0.3s ease-in-out; /* Smooth transition for hover effect */
+    display: inline-block; /* Essential for transform to work correctly on inline elements */
+}
+.animated-name:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Custom CSS for about section gradient */
+.about-gradient-bg {
+    background-image: linear-gradient(to right, #2563eb, #111827); /* blue-700 to gray-900 (black) */
+}
+
+/* Game specific styles (Snake) */
+#game-area {
+    background-color: #ffffff;
+    border-radius: 0.75rem; /* rounded-lg */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+    padding: 2.5rem; /* p-10 */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+canvas {
+    background-color: #1a202c; /* dark gray/blue for game background */
+    border: 2px solid #2563eb; /* blue-700 border */
+    border-radius: 0.5rem; /* rounded-md */
+    margin-bottom: 1.5rem; /* mb-6 */
+    display: block;
+}
+#game-controls button {
+    background-color: #2563eb; /* blue-700 */
+    color: #ffffff;
+    font-weight: 700; /* font-bold */
+    padding: 0.75rem 1.5rem; /* py-3 px-6 */
+    border-radius: 9999px; /* rounded-full */
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    cursor: pointer;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    margin: 0.5rem; /* margin around buttons */
+}
+#game-controls button:hover {
+    background-color: #1d4ed8; /* blue-800 */
+    transform: scale(1.05);
+}
+#game-status {
+    color: #4a5568; /* gray-700 */
+    font-weight: 600; /* font-semibold */
+    margin-bottom: 1rem; /* mb-4 */
+}
